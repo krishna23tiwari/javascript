@@ -1,0 +1,11 @@
+1. Function Expression Hoisting
+
+
+console.log(typeof test);
+var test = function() { return 5; };
+
+Result = undefined
+
+the result is undefined because we print the function value first then we call it
+
+-------------------------------------------------------------------------------------------------------------------------
