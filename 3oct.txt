@@ -1,0 +1,722 @@
+
+ 16. Block Scope and Let
+
+
+let x = 5;
+function checkScope() {
+  let x = 10;
+  console.log(x);
+}
+checkScope();
+console.log(x);
+
+Result = 10, 5
+
+here first print 10 because where x value in the scope is 10 inside function then it will print 5 because its outside 
+and outside value of x is 5.
+
+----------------------------------------------------------------------------------------------------------------------
+
+ 17. Functions and Parameter Hoisting
+
+
+function hoistParam(param) {
+  console.log(param);
+  var param = 20;
+}
+hoistParam(10);
+
+Result = 10
+
+here it will print 10 because we pass the value here 10 in hoistparam so param value will change by 10 and it will print 10.
+
+-----------------------------------------------------------------------------------------------------------------------
+
+ 18. Nested Functions and Scope Chain
+
+
+let x = 1;
+function outer() {
+  let x = 2;
+  function inner() {
+    console.log(x);
+  }
+  inner();
+}
+outer();
+
+Result = 2
+
+here it will print 2 because we intialize the value with let x = 1 first then we reintialize the value with x = 2
+and then we print it into the inner function so it will print the 2 beacause of closure.
+
+--------------------------------------------------------------------------------------------------------------------
+
+ 19. Arguments Object
+
+
+function testArgs(a, b, c) {
+  console.log(arguments[0], arguments[1], arguments[2]);
+}
+testArgs(1, 2);
+
+Result = 1, 2, undefined
+
+we pass 2 value here in a function and there 3 argument so c is not defined here so for first 2 argument[0] and argument[1]
+it will print 1,2 and for third which is not define so it will show undefined.
+
+--------------------------------------------------------------------------------------------------------------------------
+
+ 20. Variable Shadowing in Blocks
+
+
+let x = 5;
+{
+  let x = 10;
+  console.log(x);
+}
+console.log(x);
+
+Result = 10,5
+
+here it will print 10 first then 5 because of inside clg where let x = 10 so it will print 10 first hen outside it will print 
+5.
+
+------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+ 21. Closures and Lexical Scope
+
+
+function outer() {
+  let a = 1;
+  function inner() {
+    console.log(a);
+  }
+  return inner;
+}
+let result = outer();
+result();
+
+Result = 1
+
+here it will print 1 because of closure, we define let a = 1 and we print it inside and there is not any a in inner function
+so it will print 1.
+
+-------------------------------------------------------------------------------------------------------------------------
+
+ 22. Hoisting in Function Expressions
+
+
+console.log(typeof foo);
+var foo = function() {
+  return 5;
+};
+
+Result = undefined
+
+because we print the foo first and then we create it so it will show the undefined.
+
+------------------------------------------------------------------------------------------------------------------------
+
+ 23. Function Declaration Hoisting
+
+
+function hoistFunc() {
+  console.log(foo());
+  function foo() {
+    return 10;
+  }
+}
+hoistFunc();
+
+Result = 10
+
+because of function hoisting it will show the result 10	, because in clg there is a function foo which return 10 so
+it will print 10.
+
+-------------------------------------------------------------------------------------------------------------------------
+
+24. Closures and Arguments
+
+
+function createFunction() {
+  let count = 0;
+  return function() {
+    return ++count;
+  };
+}
+
+const increment = createFunction();
+console.log(increment());
+console.log(increment());
+
+Result = 1,2
+
+here count value is initialize with 0 and then count increase first because of ++count so first clg it will print 1
+and then in second it will print 2.
+
+-------------------------------------------------------------------------------------------------------------------------
+
+ 25. Scope and Variable Shadowing
+
+
+let x = 10;
+function checkScope() {
+  let x = 20;
+  console.log(x);
+}
+checkScope();
+console.log(x);
+
+Result = 20,10
+
+here again it will print first 10 because we reintialze the value of x inside so first it will print the inside value
+then it will print the outside one which is 10.
+
+-----------------------------------------------------------------------------------------------------------------------
+
+ 26. Immediate Invocation and Scope
+
+
+(function() {
+  var x = 5;
+})();
+console.log(x);
+
+Result = x is not defined
+
+here we intialize x inside the function but here we print it outside the function so where x is not defined.
+
+---------------------------------------------------------------------------------------------------------------------------
+
+
+ 27. Closures with Nested Functions
+
+
+function outerFunction() {
+  var outerVar = "I'm outer";
+  return function innerFunction() {
+    console.log(outerVar);
+  };
+}
+outerFunction()();
+
+Result = i m outer
+
+because of clouser we can access the outervar inside innerfunction so it will print i m outer.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+ 28. Hoisting of Function Expressions
+
+
+console.log(typeof func);
+var func = function() {
+  return 5;
+};
+
+Result = undefined
+
+This happens because func is declared but not yet assigned a value at the point where console.log is called.
+
+-------------------------------------------------------------------------------------------------------------------------
+
+ 29. Block Scope with Let
+
+
+let x = 10;
+if (true) {
+  let x = 20;
+  console.log(x);
+}
+console.log(x);
+
+Result = 20,10
+
+it will print 20 and 10 because when if condition start then inside of it where let x = 20 so it will 20 first then outside clg 
+where x is 10 so it will print 10.
+
+-------------------------------------------------------------------------------------------------------------------------
+
+
+ 30. Closures and State Management
+
+
+function counter() {
+  let count = 0;
+  return function() {
+    return ++count;
+  };
+}
+const increment = counter();
+console.log(increment());
+console.log(increment());
+
+Result = 1,2
+
+here we intialize count value with 0 and then it will increase first and then print so first it will print 1 and then 2.
+
+--------------------------------------------------------------------------------------------------------------------------
+
+ 31. Hoisting and Function Parameters
+
+
+function testHoisting(param) {
+  console.log(param);
+  var param = 20;
+}
+testHoisting(10);
+
+Result = 10
+
+here we pass the value in testhoisting 10 so it will take the value 10 intate of param and print it inside .
+
+--------------------------------------------------------------------------------------------------------------------------
+
+
+ 32. Variable Shadowing in Nested Functions
+
+
+let a = 1;
+function outer() {
+  let a = 2;
+  function inner() {
+    console.log(a);
+  }
+  inner();
+}
+outer();
+
+Result = 2
+
+it will print 2 becaue of closure, here in outer function we decleare let a = 2 and print it inside the inner function 
+so it will print 2.
+
+-----------------------------------------------------------------------------------------------------------------------
+
+ 33. Closures with Multiple Functions
+
+
+function createCounter() {
+  let count = 0;
+  return {
+    increment: function() {
+      count++;
+      console.log(count);
+    },
+    decrement: function() {
+      count--;
+      console.log(count);
+    }
+  };
+}
+
+const counter = createCounter();
+counter.increment();
+counter.decrement();
+
+
+Result = 1,0
+
+it will print first 1 because we intialize the count with 0 and then we increment the count with +1 and print it so it will 
+print 1 in first clg and then in decrement function where count is count-- so it will decrease the count value so 
+it will show the result 0.
+
+------------------------------------------------------------------------------------------------------------------------
+
+ 34. Lexical Scope and Closures
+
+
+let a = 1;
+function outerFunc() {
+  let a = 2;
+  return function() {
+    console.log(a);
+  };
+}
+let result = outerFunc();
+result();
+
+Result = 2
+
+here it will print 2 because in return function when we clg the value of a then it will take the let a = 2 value and then print it inside clg.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ 35. Hoisting and Function Declarations
+
+
+console.log(test());
+function test() {
+  return 5;
+}
+
+Result = 5 
+
+here it will print 5 because of function hoisting it will take the value 5 which is function is returning so it will print 5.
+
+------------------------------------------------------------------------------------------------------------------------
+
+ 36. Closures with Functions Returning Functions
+
+
+function createMultiplier(multiplier) {
+  return function(num) {
+    return num * multiplier;
+  };
+}
+
+let double = createMultiplier(2);
+console.log(double(4));
+
+Result = 8
+
+When we call double(4), the returned function takes 4 as num and returns 4 * 2 = 8.
+So, when we pass a value to the returned function, it multiplies that value (num) by the 
+multiplier we provided to createMultiplier
+
+--------------------------------------------------------------------------------------------------------------------------
+
+ 37. Block Scope with Let and Var
+
+
+var x = 10;
+if (true) {
+  let x = 20;
+  console.log(x);
+}
+console.log(x);
+
+Result = 20,10
+
+
+it will print 20 and 10 because when if condition start then inside of it where let x = 20 so it will 20 first then outside clg 
+where x is 10 so it will print 10.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+ 38. Closures and State Encapsulation
+
+
+function createCounter() {
+  let count = 0;
+  return function() {
+    return ++count;
+  };
+}
+
+let counter = createCounter();
+console.log(counter());
+console.log(counter());
+
+Result = 1,2
+
+here count value is initialize with 0 and then count increase first because of ++count so first clg it will print 1
+and then in second it will print 2.
+
+-------------------------------------------------------------------------------------------------------------------------
+
+ 39. Function Expressions and Hoisting
+
+
+console.log(typeof func);
+var func = function() {
+  return 10;
+};
+
+Result = undefined
+
+When console.log(typeof func) is executed, func is declared, but it has not yet been assigned the function value. 
+Therefore, func is undefined at this point.
+
+---------------------------------------------------------------------------------------------------------------------
+
+ 40. Function Scope and Hoisting
+
+
+function scopeTest() {
+  console.log(x);
+  var x = 10;
+}
+scopeTest();
+
+Result = undefined
+
+because here we clg the value of x first and then intialize it with x = 10 so it will show the result undefined
+
+-----------------------------------------------------------------------------------------------------------------------
+
+ 41. Closure and Returning Functions
+
+
+function multiplierFactory(factor) {
+  return function(num) {
+    return num * factor;
+  };
+}
+let double = multiplierFactory(2);
+console.log(double(5));
+
+Result = 10
+
+When we call double(5), the returned function takes 4 as num and returns 5 * 2 = 10.
+So, when we pass a value to the returned function, it multiplies that value (num) by the 
+multiplier we provided to createMultiplier
+
+----------------------------------------------------------------------------------------------------------------------
+
+42. Lexical Scoping and Function Variables
+
+
+let x = 10;
+function outerFunc() {
+  console.log(x);
+}
+function test() {
+  let x = 20
+
+;
+  outerFunc();
+}
+test();
+
+Result = 10
+
+it will show the result 10 because when we clg the value of x in outerfunc then it will access the x value which is
+10 so it will print 10.
+
+---------------------------------------------------------------------------------------------------------------------------
+
+43. Scoping and Temporal Dead Zone
+
+
+console.log(a);
+let a = 10;
+
+
+Question: What is the output and why? Explain the concept of the "Temporal Dead Zone."
+
+Result = Cannot access 'a' before initialization
+
+we cant clg the value of a here because we intialize it later and first we print it so it will show us 
+ Cannot access 'a' before initialization 
+
+
+The Temporal Dead Zone (TDZ) in JavaScript refers to the period between the creation of a variable in a 
+block scope (when it's declared with let or const) and its initialization. During this period, the variable is in the 
+"dead zone," meaning it cannot be accessed or used until the point in the code where it is initialized.
+
+-------------------------------------------------------------------------------------------------------------------
+
+
+ 44. Hoisting in Nested Functions
+
+
+function outer() {
+  console.log(a);
+  var a = 10;
+  function inner() {
+    console.log(a);
+    var a = 20;
+  }
+  inner();
+}
+outer();
+
+
+Question: What will be printed and why? Discuss how hoisting affects variables in nested functions.
+
+Result = undefined, undefined
+
+here it will show us undefined befcause we try to acces the value of a before intialization 
+
+In JavaScript, hoisting affects variables in nested functions similarly to how 
+it affects variables in global or block scopes, but there are some nuances due to the way JavaScript handles 
+function scopes. Hoisting applies to both variable declarations (var, let, const) and 
+function declarations, but it behaves differently for each.
+
+---------------------------------------------------------------------------------------------------------------------
+
+ 45. Closure with Function Re-Assignment
+
+
+let count = 0;
+function counter() {
+  count++;
+  return count;
+}
+
+let c1 = counter;
+let c2 = counter;
+
+console.log(c1());
+console.log(c2());
+console.log(c1());
+
+
+Question: What will be the output and why? Analyze the behavior of closures when functions are 
+assigned to multiple variables.
+
+Result = 1,2,3
+
+here it will print 1,2,3 because we intialize the count value by 0 and then in a function we increment it 
+and store the function counter value in c1 and c2 so when we print the first c1 then it will show us 1 and in second c2 
+it will show us 2 and then when we call again the c1 and where cout value is alreday increase by 3 so it will print 3
+
+----------------------------------------------------------------------------------------------------------------------
+
+ 46. Variable Scope in Loops (Var vs. Let)
+
+
+for (var i = 0; i < 3; i++) {
+  for (let i = 0; i < 2; i++) {
+    console.log(i);
+  }
+}
+console.log(i);
+
+
+Question: What will be printed and why? Explain the difference between `var` and `let` in loop scoping.
+
+Result = 1,0,1,0,1,0,3
+
+when we run the inner loop then it will run i<2 so it will print 1,0 for first and it will print three time because
+in outer loop will run 3 times so it in last it will print 3
+
+for var loop scope = 1.Same variable is reused across iterations, 2. Captures the final value after loop ends
+for let loop scope = New variable for each iteration (block scope) 2. Captures the value at each iteration
+
+--------------------------------------------------------------------------------------------------------------------------
+
+
+ 47. Lexical Scope and Closures
+
+
+function outer() {
+  let a = 1;
+  return function inner() {
+    return a++;
+  };
+}
+
+const x = outer();
+console.log(x());
+console.log(x());
+console.log(a);
+
+
+Question: What will be the output and why? Analyze the closure formed by `inner()` and how it impacts variable access.
+
+Result = 1,2, a is not defined
+
+here it will print 1 in first clg then in second it will print 2 but in third it will show us a is not define 
+because it a is define inside the function so we cant acces a outside of it.
+
+------------------------------------------------------------------------------------------------------------------------
+
+48. Re-declaration with Var and Let
+
+
+var x = 10;
+let x = 20;
+console.log(x);
+
+
+Question: What will happen here, and why? Discuss why this causes an error and the 
+difference between `var` and `let` in terms of redeclaration.
+
+Result = Identifier 'x' has already been declared
+
+because we intialize x two times so it will show us the error 
+var allows redeclaration within the same scope.
+let does not allow redeclaration within the same scope.
+
+------------------------------------------------------------------------------------------------------------------------
+
+ 49. Function and Block Scope
+
+
+function outer() {
+  var x = 10;
+  if (true) {
+    let x = 20;
+    console.log(x);
+  }
+  console.log(x);
+}
+outer();
+
+
+Question: What will be printed and why? Explain how block scope works with `let` and `var`.
+
+Result = 20,10
+
+
+it will print 20 and 10 because when if condition start then inside of it where let x = 20 so it will 20 first then outside clg 
+where x is 10 so it will print 10.
+
+Block-scoped: Variables declared with let are scoped to the nearest block (i.e., any set of curly braces {}). 
+This means that they are 
+only accessible inside the block in which they are declared.
+
+Function-scoped: Variables declared with var are not block-scoped; they are scoped to 
+the nearest function or globally if no function is present. This means that if a variable is declared inside a block, 
+it is accessible 
+outside the block as long as it is in the same function or global scope.
+
+------------------------------------------------------------------------------------------------------------------------
+
+50. Const with Objects
+
+
+const obj = { a: 10 };
+obj.a = 20;
+obj = { a: 30 };
+console.log(obj.a);
+
+
+Question: What is the output and why? Discuss how `const` works with objects, 
+particularly in terms of re-assignment versus mutation.
+
+Result =  Assignment to constant variable.
+--------------------------------------------------------------------------------------------------------------------------
+
+ 51. Immediate Invocation with Var and Let
+
+
+for (let i = 0; i < 3; i++) {
+  (function() {
+    console.log(i);
+  })();
+}
+
+
+Question: What will be printed and why? Analyze the behavior of IIFE (Immediately Invoked Function Expression) 
+with `let` in loops.
+
+Result = 0,1,2
+
+the loop will run 3 times and it will print 0,1,2 
+
+Block Scope with let: The let keyword creates block scope, meaning that the variable defined with let is only 
+accessible within the block where it's defined. When you use let inside a loop, each iteration of the 
+loop has its own scope.
+
+IIFE Execution: By wrapping the code inside an IIFE, you can 
+control the execution of the function immediately and utilize the let variable defined in that specific iteration.
+
+
+
+
+
+
+
+
+
+
+
+
