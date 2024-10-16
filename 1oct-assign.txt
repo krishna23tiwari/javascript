@@ -1,0 +1,286 @@
+1. Function Expression Hoisting
+
+
+console.log(typeof test);
+var test = function() { return 5; };
+
+Result = undefined
+
+the result is undefined because we print the function value first then we call it
+
+-------------------------------------------------------------------------------------------------------------------------
+
+ 2. Lexical Scoping with Let and Var
+
+
+let x = 5;
+function scopeTest() {
+  console.log(x);
+  var x = 10;
+}
+scopeTest();
+
+Result = undefined
+
+the result is undefined because we first we declare x = 5 then start a function here if will not defined x inside 
+the function then we can access the ouside x but here we defined var x = 5 after the clg so it will show us output 
+of undefined.
+
+------------------------------------------------------------------------------------------------------------------------
+
+
+ 3. Closure Inside a Loop
+
+
+function createIncrementer() {
+  let count = 0;
+  return function() {
+    return ++count;
+  };
+}
+
+let increment = createIncrementer();
+console.log(increment());
+console.log(increment());
+
+
+Result = 1,2
+
+here we create a function and create count inside of it and initalize it with 0 and then first incrment it and then 
+print it first so first clg will print 1 and then again we do this process and now we already increase the count value 
+by 1 so now when we clg again and call the function then it will print 2.
+
+------------------------------------------------------------------------------------------------------------------------
+
+
+ 4. Variable Hoisting
+
+
+console.log(foo);
+var foo = 10;
+
+Result = undefined
+
+here we again decleare the value after the printing so it will show us undefined.
+
+----------------------------------------------------------------------------------------------------------------------
+
+5. Block Scope with Let
+
+
+function blockScope() {
+  let x = 10;
+  if (true) {
+    let x = 20;
+    console.log(x);
+  }
+  console.log(x);
+}
+blockScope();
+
+Result = 20,10
+
+here we intialize the value let x = 10 first then start with if condition and when it goes inside that block 
+then here we again gives x a value 20 so now its print the inside value first which is 20.
+and then when it comes out the block then it finds again a clg and now it is a outside of the block and here the value is 
+10, so now it will print the value of 10.
+
+------------------------------------------------------------------------------------------------------------------
+
+ 6. Function Scope and Closures
+
+
+function outer() {
+  var outerVar = "outer";
+  return function inner() {
+    console.log(outerVar);
+  };
+}
+var innerFunc = outer();
+innerFunc();
+
+Result = outer
+
+here it will print the outer because we create a function outer and inside of it create a variable outervar and gives 
+it a value outer and now we create a another function in return of first function which we call annonymus function and now 
+we print the value of outervar and it will access the outer value as well because of closure concept so it 
+will print outer.
+
+-------------------------------------------------------------------------------------------------------------------------
+
+ 7. Variable Shadowing
+
+
+
+let a = 10;
+function shadow() {
+  let a = 5;
+  console.log(a);
+}
+shadow();
+console.log(a);
+
+Result = 5,10
+
+we just define let a = 5 inside a function and print it, but let a = 10 we already define outside too but it does not 
+effect on inside function because we already define inside so it will print 5 first and when we print outside it will print 
+10.
+
+--------------------------------------------------------------------------------------------------------------------
+
+ 8. Closure and Multiple Functions
+
+
+function outerFunc() {
+  let count = 0;
+  return {
+    increment: function() {
+      count++;
+      console.log(count);
+    },
+    decrement: function() {
+      count--;
+      console.log(count);
+    }
+  };
+}
+
+let counter = outerFunc();
+counter.increment();
+counter.decrement();
+
+
+Result = 1,0
+
+here we call the first function which is outerfunction and inside outer function intialize count = 0 and in return 
+of outer function create fuction increment and it it a kind of key value pair system so when it goes inside the function 
+here we increase count with ++ and then again we create one more function where it will shows us 0.
+
+--------------------------------------------------------------------------------------------------------------------------
+
+ 9. Lexical Scoping with Functions
+
+
+function outerFunc() {
+  let x = 10;
+  function innerFunc() {
+    console.log(x);
+  }
+  return innerFunc;
+}
+let result = outerFunc();
+result();
+
+Result = 10
+
+here again x is mentiond outside of the function and there is no x inside the function so it can access x and print 
+the value becaue of clouser.
+
+--------------------------------------------------------------------------------------------------------------------
+
+ 10. Hoisting with Function Declarations
+
+
+function hoistingTest() {
+  console.log(x);
+  var x = 10;
+}
+hoistingTest();
+
+
+Result = undefined
+
+here we again clg the value first then intialize it so it will gives us undefined.
+
+------------------------------------------------------------------------------------------------------------------------
+
+ 11. Functions and Default Parameters
+
+
+function add(a = 5, b = a * 2) {
+  return a + b;
+}
+console.log(add(3));
+console.log(add());
+
+Result = 9,15
+
+here we create a function add and use default value a = 5, and b = a*2 but when we call the the function and gives the 
+value 3 so now here the default value will change by 3 because if we pass the value then it will always cinsider the 
+value which is pass if there is not any value then it will take defalut value, so first it will take a = 3 and b = 3*2=6
+and a+b = 9 so first it will print the 9 and then there is no value pass in second clg so it will print 15
+
+------------------------------------------------------------------------------------------------------------------------
+
+
+ 12. Closure with State
+
+
+function createCounter() {
+  let count = 0;
+  return function() {
+    return ++count;
+  };
+}
+const counter = createCounter();
+console.log(counter());
+console.log(counter());
+
+Result =  1,2
+
+here we intialize value with count = 0 and then again here is a annonymus function which increment the count with +1
+and outside the function already created a variable counter and inside it we call the function and when we print the 
+counter so first it will print the 1 and then again go to function and we alreay increment it by one and now we 
+increment it by one more so now its 2.
+
+----------------------------------------------------------------------------------------------------------------------
+
+ 13. Hoisting in Functions
+
+
+function testHoist() {
+  console.log(foo);
+  var foo = 10;
+}
+testHoist();
+
+Result = undefined
+
+------------------------------------------------------------------------------------------------------------------------
+
+
+ 14. Self-Invoking Function with Closure
+
+
+(function() {
+  var x = 5;
+})();
+console.log(x);
+
+
+result = x is not define
+
+here we create a function and inside the function create a var a with 5 but its a inside the function so this 
+variable does not have any scope outside the function so when we print the x outside then it will shows is x is not defined.
+
+---------------------------------------------------------------------------------------------------------------------
+
+15. Closure and Returning Functions
+
+
+function multiplierFactory(factor) {
+  return function(num) {
+    return num * factor;
+  };
+}
+let double = multiplierFactory(2);
+console.log(double(4));
+
+Result = 8
+
+Here, the function multiplierFactory(2) is called with factor = 2. This call returns a function that multiplies any 
+given number by 2, and the returned function is assigned to the variable double.
+Now, double(4) is called. This executes the inner function, now num is 4, and since factor was 
+already has the value 2, the 4*2 = 8
+
+
