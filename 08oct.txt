@@ -1,0 +1,522 @@
+1.Create a function greet that takes two positional arguments: name and greeting, 
+and returns a personalized greeting message
+
+function greeting(name,greet)
+{
+    return name+" "+greet
+}
+
+let greet = "hello"
+let name = "kk"
+
+let c = greeting(name,greet)
+console.log(c);
+
+-------------------------------------------------------------------------------------------------------------------
+
+2. Write a function calculatePrice that 
+takes two arguments: price and taxRate. If taxRate is not provided, it should default to 5%.
+
+function calculateprice(price, taxrate=5)
+{
+    return price-(price*taxrate/100);
+}
+
+let price = 1000
+let taxrate = 10
+
+let c = calculateprice(price,taxrate)
+console.log(c);
+
+------------------------------------------------------------------------------------------------------------------------
+
+3. Create a function sumNumbers that takes an unknown number of arguments using the rest operator and returns their sum.
+
+function sumnumber(...rest)
+{
+    let [a,b,c,d,e] = rest
+
+    return a+b+c+d+e
+}
+
+let a = 2
+let b = 4
+let c = 10
+let d = 15
+let e = 20
+
+let x = sumnumber(a,b,c,d,e)
+console.log(x);
+
+--------------------------------------------------------------------------------------------------------------------------
+
+4. Create a function introduce that takes three positional arguments: 
+firstName, lastName, and age, and returns a sentence introducing the person.0
+
+function introduce(firstanme, lastname, age)
+{
+    return (`"firstname" = ${firstname} "lastname" = ${lastname}+ "age" = ${age}`)
+}
+
+let firstname = "kk"
+let lastname = "tiwari"
+let age = 26
+
+let x = introduce(firstname, lastname, age)
+console.log(x);
+
+-----------------------------------------------------------------------------------------------------------------------
+
+5.Write a function makeSandwich that takes two 
+arguments: breadType and filling. The default value for breadType should be "whole wheat".
+
+function makesandwich(filling ,breadtype = wholeWheat)
+{
+    return breadtype+" "+filling
+}
+
+let filling = "potato"
+
+let x = makesandwich(filling)
+console.log(x);
+
+---------------------------------------------------------------------------------------------------------------------
+
+6. Create a function multiply that takes 
+two positional arguments x and y, with a default value for y as 1, and returns the result of multiplying them.
+
+function multiply(x, y = 1)
+{
+    return x*y
+}
+
+let a = 5
+
+let x = multiply(a)
+console.log(x);
+
+-----------------------------------------------------------------------------------------------------------------
+
+7.Write a function getTotalPrice that takes an unknown 
+number of prices as arguments using the rest operator and returns the total price.
+
+function gettotalprice(...rest)
+{
+    let [a,b,c,d,e] = rest
+
+    return a+b+c+d+e
+}
+
+let a = 20
+let b = 4
+let c = 10
+let d = 15
+let e = 20
+
+let x = gettotalprice(a,b,c,d,e)
+console.log(x);
+
+-----------------------------------------------------------------------------------------------------------------------
+
+8.Create a function buildSentence that 
+accepts three arguments: subject, verb, and object. If no object is passed, it should default to "something"
+
+function builtsentence(subject, verb, object= "something")
+{
+    return subject+" "+verb+" "+object
+}
+
+let a = "kk"
+let b = "is"
+
+
+let x = builtsentence(a,b)
+console.log(x);
+
+-------------------------------------------------------------------------------------------------------------------------
+
+9.Write a function addNumbers that takes an unknown number of numbers using the rest operator and returns the sum.
+
+function addnumbers(...rest)
+{
+    let [a,b,c,d,e] = rest
+
+    return a+b+c+d+e
+}
+
+let a = 2
+let b = 4
+let c = 10
+let d = 15
+let e = 20
+
+let x = addnumbers(a,b,c,d,e)
+console.log(x);
+
+------------------------------------------------------------------------------------------------------------------------
+
+10.Create a function displayInfo that takes three arguments: 
+name, age, and city. If no city is provided, it should default to "Unknown".
+
+function displayinfo(name, age, city= "unknown")
+{
+    return "name is " +name + " and age is "+ age +" and city "+city;
+}
+
+console.log((displayinfo("kk",26,"jaipur")));
+console.log((displayinfo("kk",26)));
+
+------------------------------------------------------------------------------------------------------------------------
+
+11. Write a function orderPizza that takes two arguments: size and topping. 
+If no topping is provided, it should default to "cheese".
+
+function orderpizza(size, topping = "cheese")
+{
+    return "size is "+ size+" and toppings are "+ topping;
+}
+
+console.log((orderpizza("medium","muhroom" )));
+console.log((orderpizza("medium")));
+
+---------------------------------------------------------------------------------------------------------------------------
+
+12. Create a function makeCoffee that takes one 
+required argument type and an unknown number of optional ingredients using the rest operator.
+
+function makecoffee(type, ...ingri)
+{
+    console.log(`making a ${type} coffee`);
+
+    if(ingri.length>0)
+    {
+        return (`Adding ingredients: ${ingri.join(',')}.`);
+    }    
+    else
+    {
+        return ("No additional ingredients.");
+    }
+
+}
+
+console.log((makecoffee("Espresso", "sugar", "milk", "cinnamon" )));
+console.log((makecoffee("black")));
+
+-------------------------------------------------------------------------------------------------------------------------
+
+13. Write a function introducePerson that takes 
+two positional arguments name and profession, with profession defaulting to "Student".
+
+function introduceperson(name, prof = "student")
+{
+    return "name is and "+name +" proffesion is "+ prof;
+
+}
+
+console.log((introduceperson("kk","developer" )));
+console.log((introduceperson("kk")));
+
+------------------------------------------------------------------------------------------------------------------------
+
+14.Create a function findMax that accepts an unknown number 
+of numbers using the rest operator and returns the maximum value.
+
+function findmax(...rest)
+{
+    let [a,b,c,d,e] = rest
+    let max = rest[1]
+    for(var i = 0; i <rest.length; i++)
+    {
+        if(max<rest[i])
+        {
+            max = rest[i]
+        }
+    }
+    return max;
+
+}
+
+let a = 2
+let b = 4
+let c = 10
+let d = 15
+let e = 20
+
+let x = findmax(a,b,c,d,e)
+console.log(x);
+
+-------------------------------------------------------------------------------------------------------------------------
+
+15. Write a function buildPerson that takes two arguments: 
+firstName and lastName, and returns an object representing the person.
+
+function buildperson(firstname, lastname )
+{
+    return person = {
+        firstname = "kk"
+        lastname = "tiwari"
+    }
+
+}
+
+console.log(buildperson());
+
+---------------------------------------------------------------------------------------------------------------------
+
+16. Create an object car with primitive properties: brand, model, and year.
+
+let car = {
+    brand : "maruti",
+    model : 2021,
+    year : 2024
+}
+
+console.log(car);
+
+--------------------------------------------------------------------------------------------------------------------------
+
+17. Create an object book with 
+non-primitive properties: title, author, and reviews (where reviews is an array of review objects)
+
+let book = {
+    titla : "jungle book",
+    author : "kk",
+    review : [1,2,5,6]
+}
+
+console.log(book);
+
+----------------------------------------------------------------------------------------------------------------------------
+18. Create an object laptop with both primitive (brand, price) and non-primitive (features - an array) properties.
+
+let laptop = {
+    brand : "dell",
+    price : 50000,
+    features : [
+        {
+            ram : "16gb",
+            harddisk : "512gb", 
+        },
+
+        {
+            ram : "32gb",
+            harddisk : "1tb",    
+        }
+    ]
+}
+
+console.log(laptop.brand,laptop.price,laptop.features);
+
+-----------------------------------------------------------------------------------------------------------------------
+19. Create an object person with a method greet that prints a greeting message using the name property.
+
+let person = {
+    name: "kk",
+    func: function(name)
+    {
+        return name;
+    }
+}
+
+console.log(person.func(person.name));
+
+--------------------------------------------------------------------------------------------------------------------------
+
+20. Write a function buildTeam that takes an unknown number 
+of team members using the rest operator and returns an array of their names.
+
+function buildteam(...rest)
+{
+    return rest;
+
+}
+
+let a = "kk"
+let b = "kkt"
+let c = "ravi"
+let d = "ravikant"
+let e = "tiwari ji"
+
+let x = buildteam(a,b,c,d,e)
+console.log(x);
+
+--------------------------------------------------------------------------------------------------------------------------
+
+21.Create a function discountPrice that takes two positional arguments: price and discountPercentage. 
+If no discount is provided, it should default to 10%
+
+function discountprice(price, discountpercentage=10)
+{
+    return price-(price*taxrate/100);
+}
+
+let price = 1000
+let taxrate = 10
+
+let c = discountprice(price,discountpercentage)
+console.log(c);
+
+-------------------------------------------------------------------------------------------------------------------------------
+22. Write a function describePet that accepts two arguments: petName and petType. 
+If no petType is provided, it should default to "dog".
+
+function describepet(petname, pettype = "dog")
+{
+    return "petname is "+petname +" and its a "+ pettype;
+
+}
+
+console.log((describepet("tom","cat" )));
+console.log((describepet("tuffy")));
+
+-------------------------------------------------------------------------------------------------------------------
+
+23. Create a function calculateArea that accepts two arguments: 
+length and width. If width is not provided, it should default to the same value as length (for a square).
+
+function calculatearea(length, width = length)
+{
+    return length*width
+}
+
+console.log((calculatearea(5,2 )));
+console.log((calculatearea(5)));
+
+---------------------------------------------------------------------------------------------------------------------------
+
+24. Write a function joinStrings that accepts an unknown number of 
+strings using the rest operator and returns them concatenated into one string.
+
+function joinStrings(...strings) 
+{
+    return strings.join('');
+}
+
+
+console.log(joinStrings("Hello", " ", "World", "!")); 
+console.log(joinStrings("kk", " ", "is", " ", "awesome")); 
+
+--------------------------------------------------------------------------------------------------------------------------
+
+25. Create a function createUserProfile that accepts three arguments: name, email, and role. 
+If no role is provided, it should default to "user".
+
+function createUserprofile(name, email, role = "user") {
+    return {
+        name: name,
+        email: email,
+        role: role
+    };
+}
+
+let user1 = createUserprofile("kk", "krishna23tiwari.com", "admin");
+let user2 = createUserprofile("kkt", "kktiwari.com");
+
+console.log(user1);
+console.log(user2);
+
+--------------------------------------------------------------------------------------------------------------------------
+
+26. Write a function divideNumbers that takes two arguments: a and b, with b defaulting to 1 if not provided.
+
+function dividenumbers(a,b = 1)
+{
+    return a/b
+}
+
+console.log(dividenumbers(10,5));
+console.log(dividenumbers(10));
+
+--------------------------------------------------------------------------------------------------------------------------
+
+27. Write a function introduceEmployee that takes two positional arguments: employeeName and 
+position, with position defaulting to "intern".
+
+
+
+function employeename(name, position= "intern")
+{
+    return "name is " +name + " and position is "+ position;
+}
+
+console.log((employeename("kk","developer")));
+console.log((employeename("kkt")));
+
+
+--------------------------------------------------------------------------------------------------------------------------
+
+29. Create a function findAverage that takes an unknown number of scores using the 
+rest operator and returns the average score.
+
+function findavg(...rest)
+{
+    let [a,b,c,d,e] = rest
+
+    return a+b+c+d+e/5
+}
+
+let a = 2
+let b = 4
+let c = 10
+let d = 15
+let e = 20
+
+let x = findavg(a,b,c,d,e)
+console.log(x);
+
+-----------------------------------------------------------------------------------------------------------------------
+
+30. Write a function buildCar that accepts three arguments: 
+brand, model, and year. If no year is provided, it should default to the current year.
+
+function buildcar(brand, model, year = 2024)
+{
+    return "brand name is "+brand+" and model is "+model+ " and year is "+year ;
+
+}
+
+console.log((buildcar("toyota","2020",2021 )));
+console.log((buildcar("maruti", "2024")));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
