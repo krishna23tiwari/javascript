@@ -1,0 +1,555 @@
+52. Function Hoisting vs. Variable Hoisting
+
+
+function test() {
+  console.log(foo);
+  var foo = 10;
+  function foo() {}
+  console.log(foo);
+}
+test();
+
+
+Question: What will be the output and why? Explain the order in which function declarations
+ and variable declarations are hoisted.
+
+Result = function, 10
+
+The function foo is hoisted and initialized at the top of the function test.
+So, when the first console.log(foo) runs, foo is a function.
+The variable var foo is hoisted, but the assignment foo = 10 happens at runtime, 
+after the first console.log(foo) call.
+
+------------------------------------------------------------------------------------------------------------------------
+
+ 53. Scoping Inside Functions
+
+
+var x = 5;
+function scopeCheck() {
+  console.log(x);
+  var x = 10;
+  console.log(x);
+}
+scopeCheck();
+
+
+Question: What will be printed and why? Discuss how variable hoisting affects the `x` variable within the function.
+
+Result = undefined, 10
+
+here we decleare the x outside the function and when we try to access it inside the function then it will check first 
+if there is any x inside the function scope so it will find the x but because of the hoistiing concepts it will not
+print 5 but then in second clg it will print 10.
+
+------------------------------------------------------------------------------------------------------------------------
+
+ 54. Closures with Function Properties
+
+
+function counter() {
+  counter.count = (counter.count || 0) + 1;
+  return counter.count;
+}
+
+console.log(counter());
+console.log(counter());
+
+
+Question: What will be the output? How does the function property `counter.count` affect the closure and variable persistence?
+
+Result = 1,2
+
+On the first call to counter(), counter.count is undefined, so it gets initialized to 0 and 
+then incremented to 1. The value 1 is returned.
+On the second call to counter(), counter.count is already 1 from the previous call, so it increments to 2 and returns 2.
+
+------------------------------------------------------------------------------------------------------------------------
+
+ 55. Block Scope and Re-declaration
+
+
+let x = 10;
+{
+  let x = 20;
+  var y = 30;
+}
+console.log(x);
+console.log(y);
+
+
+Question: What will be the output? Explain how `let` and `var` behave differently inside block scope.
+
+Result = 10,30
+
+first it will print 10 because let is x is decleare outside block so it can access the x and then y will print 30 because 
+of var, and var can access outside the scope so it will print 30.
+
+-----------------------------------------------------------------------------------------------------------------------
+
+ 56. Hoisting of Function Expression
+
+
+console.log(func());
+var func = function() {
+  return 10;
+};
+
+
+Question: What will be printed and why? Discuss the 
+difference in hoisting behavior between function declarations and function expressions.
+
+Result = func is not a function
+
+Function Declarations are fully hoisted, meaning the function can be called before it's defined in the code.
+Function Expressions are partially hoisted. The variable is hoisted and initialized to undefined, but the function 
+definition isn't hoisted, 
+so calling the function before the assignment leads to a TypeError
+
+-------------------------------------------------------------------------------------------------------------------------
+ 57. Const and Re-assignment
+
+const a = 5;
+{
+  const a = 10;
+  console.log(a);
+}
+console.log(a);
+
+
+Question: What will be printed? Discuss how `const` works in different block scopes and whether re-declaration is possible.
+
+Result = 10,5
+
+it will print 10 first then 5 because when block start there is const so it will print 10 first and when block close then 
+it will print 5.
+
+------------------------------------------------------------------------------------------------------------------
+
+ 58. IIFE (Immediately Invoked Function Expression) and Hoisting
+
+
+(function() {
+  console.log(a);
+  var a = 10;
+})();
+
+
+Question: What will be the output and why? Explain the role of hoisting inside an IIFE.
+
+Result = undefined
+
+it will show us the output of undefined because vas is decleared after the clg so it will show the undefined.
+
+------------------------------------------------------------------------------------------------------------------------
+
+ 59. Lexical Scoping and Closure Memory
+
+
+function outer() {
+  let counter = 0;
+  return function increment() {
+    counter++;
+    return counter;
+  };
+}
+
+let increment1 = outer();
+let increment2 = outer();
+console.log(increment1());
+console.log(increment2());
+console.log(increment1());
+
+
+Question: What will be printed? Discuss how closures preserve their lexical environment across different instances of the same function.
+
+Result = 1,1,2
+
+increment1() is called.
+Inside the increment function, the counter (which belongs to the increment1 closure) is incremented from 0 to 1.
+It returns 1, so 1 is printed.
+
+increment2() is called.
+Inside the increment function, the counter (which belongs to the increment2 closure) is incremented from 0 to 1.
+It returns 1, so 1 is printed.
+Note: The counter for increment2 is independent of increment1, which is why it starts from 0 again.
+
+increment1() is called again.
+The counter in the increment1 closure is now 1 (from the previous call), so it is incremented to 2.
+It returns 2, so 2 is printed.
+
+------------------------------------------------------------------------------------------------------------------------
+
+ 60. Let and Var in Loops
+
+
+for (var i = 0; i < 3; i++) {
+  let j = i;
+  console.log(j);
+}
+console.log(i);
+
+
+Question: What will be printed and why? Explain the difference between `var` and `let` in loop variable declaration.
+
+Result = 0,1,2,3
+
+In the first iteration, i = 0, so j = 0 is printed.
+In the second iteration, i = 1, so j = 1 is printed.
+In the third iteration, i = 2, so j = 2 is printed.
+
+After the loop finishes, the condition i < 3 fails when i becomes 3. 
+Therefore, after the loop ends, the value of i is 3, and console.log(i); prints:
+
+1. var and Scope:
+
+Variables declared with var are function-scoped or globally scoped, 
+meaning they exist outside the block of the loop.
+In this example, i declared with var is accessible even outside the loop, 
+which is why console.log(i); after the loop works and prints 3.
+
+2. let and Scope:
+
+Variables declared with let are block-scoped, meaning they are confined to the 
+block in which they are declared (in this case, the body of the loop).
+
+In the example, j is declared with let, so a new j is created for each 
+iteration, and j is not accessible outside the loop body.
+
+If you had tried console.log(j); outside the loop, it would result in a ReferenceError because j is block-scoped.
+
+----------------------------------------------------------------------------------------------------------------------------
+
+
+ 61. Shadowing with Let and Var
+
+
+let a = 5;
+function test() {
+  var a = 10;
+  console.log(a);
+}
+test();
+console.log(a);
+
+
+Question: What will be printed and why? Discuss how `let` and `var` interact in terms of scope and shadowing.
+
+Result = 10,5
+
+A variable a is declared using let in the global scope with a value of 5. Since let is block-scoped, 
+a is available throughout the global scope but is limited to this block (global scope).
+
+The var a = 10; declaration shadows the global a inside the function. 
+Shadowing means that the function has its own local a, which hides the global a within the function body.
+
+When console.log(a); is executed inside the test() function, it prints the value of the local a, which is 10.
+
+After test() is executed, the global a remains unaffected 
+because the a inside the function was function-scoped due to var.
+When console.log(a); is executed outside the function, it prints the value of the global a, which is still 5.
+
+shadowing 
+
+Shadowing occurs when a variable declared in a 
+nested scope has the same name as a variable in an outer scope. The inner variable "shadows" 
+or hides the outer variable within its own scope.
+
+In this example:
+
+The global variable a declared with let is shadowed 
+by the local a declared with var inside the test() function.
+
+Inside test(), the global a is inaccessible because the local a (declared with var) takes precedence.
+
+--------------------------------------------------------------------------------------------------------------------------
+
+62. Function Scope with Var
+
+
+function testScope() {
+  console.log(x);
+  var x = 10;
+  console.log(x);
+}
+testScope();
+
+
+Question: What will be printed? Analyze how `var` variables are hoisted within a 
+function and how their value is handled before initialization.
+
+Result = undefined,10
+
+At this point, x has been declared (due to hoisting), 
+but it hasn't been initialized yet. Therefore, its value is undefined.
+
+The first console.log(x); prints undefined.
+
+After the first console.log(x);, the assignment x = 10; occurs, so x now has a value of 10.
+
+Now, x has been initialized to 10, so the second console.log(x); prints 10.
+
+Key Concept: Hoisting with var
+
+Variable Declaration Hoisting: Variables declared with var are hoisted to the top of their scope. 
+This means the variable x is 
+known throughout the entire testScope() function, but until it's assigned a value, it holds undefined.
+
+Initialization Happens Later: The assignment (initialization) of x = 10; 
+only happens where the line actually appears in the code, not during hoisting. Before that, 
+the variable exists but is uninitialized, so it is undefined.
+
+--------------------------------------------------------------------------------------------------------------------------
+
+ 63. Re-declaration with Var Inside Function
+
+
+var a = 10;
+function testVar() {
+  var a = 20;
+  console.log(a);
+}
+testVar();
+console.log(a);
+
+
+Question: What will be the output? Explain how variable scope works when re-declaring `var` inside a function.
+
+Result = 20,10
+
+A variable a is declared in the global scope and initialized with a value of 10.
+
+inside the function testVar, a new variable a is declared using var and initialized with a
+value of 20. This a is function-scoped, 
+meaning it is only accessible within the testVar function.0
+
+When console.log(a); is executed inside testVar, it refers to the local variable a (which is 20), 
+not the global variable. Therefore, it prints 20.
+
+After calling testVar(), the global a still holds its original value of 10. 
+When console.log(a); is executed outside the 
+function, it refers to the global variable a, which is 10
+
+---------------------------------------------------------------------------------------------------------------------------
+
+ 64. Scoping in Nested Functions
+
+
+function outerFunc() {
+  var x = 10;
+  function innerFunc() {
+    console.log(x);
+  }
+  innerFunc();
+}
+outerFunc();
+
+
+Question: What will be printed and why? Discuss the concept of lexical scoping in nested functions.
+
+Result = 10
+
+because of lexical scoping which is a fundamental concept in how nested functions 
+access variables from their outer (enclosing) scopes.
+
+The function outerFunc is defined with a local variable x initialized to 10.
+
+Inside outerFunc, another function named innerFunc is defined. This function, when called, will log the value of x.
+
+Therefore, when console.log(x); is executed inside innerFunc, it logs the value of x, which is 10.
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+ 65. Block Scoping with Let
+
+
+let a = 5;
+{
+  let a = 10;
+  console.log(a);
+}
+console.log(a);
+
+
+Question: What will be printed? Discuss how block scoping with `let` affects 
+variable visibility inside and outside the block.
+
+Result = 10,5
+
+Global Scope (let a = 5;):
+
+A variable a is declared in the global scope and initialized with a value of 5. 
+This variable is accessible anywhere in the global scope.
+
+Block Scope:
+
+A block is created using curly braces { ... }. Inside this block, another variable a 
+is declared with let and initialized with a value of 10.
+
+The let keyword creates a new variable that is block-scoped, meaning it is 
+only accessible within the block where it is declared.
+
+First console.log(a);:
+
+Inside the block, when console.log(a); is executed, it refers to the 
+block-scoped variable a, which is 10. Therefore, this line prints 10.
+
+Second console.log(a);:
+
+After the block, when console.log(a); is executed, 
+it refers to the global variable a, which remains unaffected by the block. The global a 
+still holds the value of 5, so this line prints 5.
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+ 66. Closure with Multiple Functions
+
+
+function outerFunc() {
+  let count = 0;
+  return {
+    increment: function() {
+      count++;
+      return count;
+    },
+    decrement: function() {
+      count--;
+      return count;
+    }
+  };
+}
+
+let counter = outerFunc();
+console.log(counter.increment());
+console.log(counter.decrement());
+
+
+Question: What will be the output and why? Analyze how closures behave with multiple functions accessing the same lexical scope.
+
+Result = 1,0
+
+Outer Function (outerFunc):
+
+The function outerFunc is defined with a local variable count initialized to 0. This variable is not directly accessible from outside the function.
+
+Returning an Object:
+
+Inside outerFunc, an object is returned containing two methods: increment and decrement.
+Both methods are inner functions that form closures over the count variable. This means they retain access to count even after outerFunc has finished executing.
+
+Calling outerFunc:
+
+When let counter = outerFunc(); is executed, outerFunc runs and initializes count to 0. It then returns the object with the two methods, which are stored in the counter variable.
+
+First Call to increment
+
+When console.log(counter.increment()); is called, the increment method executes:
+count is incremented by 1, changing its value from 0 to 1.
+The updated value of count (1) is returned and printed.
+
+First Call to decrement:
+
+When console.log(counter.decrement()); is called, the decrement method executes:
+count is decremented by 1, changing its value from 1 to 0.
+The updated value of count (0) is returned and printed.
+
+-----------------------------------------------------------------------------------------------------------------------
+
+ 67. Hoisting and Function Declaration
+
+
+console.log(test());
+function test() {
+  return 5;
+}
+
+
+Question: What will be printed and why? Explain how function declarations are hoisted.
+
+result = 5
+
+Step-by-Step Breakdown:
+Function Declaration Hoisting:
+
+In JavaScript, function declarations are fully hoisted to the top of their scope. This means that both the function's name and its body are moved to the top of the scope during the compilation phase, before the code is executed.
+Execution of console.log(test());:
+
+Even though the console.log(test()); is placed before the function test is defined in the code, it still works because the function is hoisted. At runtime, the function test is already available in memory.
+When console.log(test()); is executed, it calls the hoisted function test, which returns 5.
+Function Execution:
+
+The function test is executed, and it returns the value 5, which is then logged to the console.
+
+-------------------------------------------------------------------------------------------------------------------------
+
+ 68. Function Expression vs. Declaration
+
+
+console.log(foo());
+var foo = function() {
+  return 5;
+};
+
+
+Question: What will happen here and why? Discuss the difference between function expressions and function declarations in terms of hoisting.
+
+Result = foo is not a function
+
+here foo is not a function its a var foo which holds the function.so foo is not a function 
+
+-------------------------------------------------------------------------------------------------------------------------
+
+69. Scope Chain in Nested Functions
+
+
+let a = 1;
+function outer
+
+() {
+  let b = 2;
+  function inner() {
+    console.log(a, b);
+  }
+  inner();
+}
+outer();
+
+
+Question: What will be printed and why? Explain how the scope chain works in nested functions.
+
+Result = 1,2
+
+function can access both let a and b and print 1,2 because of closure
+
+--------------------------------------------------------------------------------------------------------------------------
+
+70.Closure in Multiple Instances
+function outer() {
+  let x = 10;
+  return function() {
+    return x++;
+  };
+}
+
+const a = outer();
+const b = outer();
+
+console.log(a());
+console.log(b());
+console.log(a());
+console.log(b());
+
+Question: What will be printed? Discuss how closures work with multiple instances and how they preserve their own state.
+
+REsult = 10,10,11,11
+
+Each call to `outer` creates a new variable `x`
+This returned function forms a closure over `x`.
+Creates a closure where `x` is 10 for `a`.
+Creates another closure where `x` is 10 for `b`.
+`a` has its own `x`, initially 10.
+`b` has its own `x`, initially 10.
+`a`'s `x` is now 11 after first call, so it returns 11.
+`b`'s `x` is now 11 after first call, so it returns 11.
