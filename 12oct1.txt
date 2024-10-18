@@ -1,0 +1,540 @@
+
+ 43. Rest Operator and Function Arguments
+
+
+function concatStrings(...strings) {
+    return strings.join(", ");
+}
+
+console.log(concatStrings("apple", "banana", "cherry"));
+console.log(concatStrings());
+
+
+What will be the output of the above code?
+
+
+Result = apple,banana,cherry
+	0
+
+----------------------------------------------------------------------------------------------------------------
+
+ 44. Function with Nested Scope
+
+
+let message = "Global";
+
+function outer() {
+    let message = "Outer";
+    function inner() {
+        let message = "Inner";
+        return message;
+    }
+    return inner();
+}
+
+console.log(outer());
+
+
+What will be the output of the above code?
+
+Result = Inner
+
+-------------------------------------------------------------------------------------------------------------------
+
+ 45. Object Method and `this` Context
+
+
+const user = {
+    name: "Alice",
+    getName: function() {
+        return this.name;
+    }
+};
+
+const getName = user.getName;
+console.log(getName());
+
+
+What will be the output of the above code?
+
+Result = Undefined
+
+--------------------------------------------------------------------------------------------------------------
+
+ 46. Rest Parameters with Named Parameters
+
+
+function showDetails(id, ...details) {
+    return details;
+}
+
+console.log(showDetails(101, "Alice", "Developer", "NYC"));
+
+
+What will be the output of the above code?
+
+Result = [ 'Alice', 'Developer', 'NYC' ]
+
+-------------------------------------------------------------------------------------------------------------
+
+ 47. Default Arguments and Overriding
+
+
+function calculateDiscount(price, discount = 10) {
+    return price - (price * discount) / 100;
+}
+
+console.log(calculateDiscount(100));
+console.log(calculateDiscount(200, 20));
+
+
+What will be the output of the above code?
+
+Result = 90, 160
+
+-----------------------------------------------------------------------------------------------------------------
+
+ 48. Closures with Private Variables
+
+
+function secretHolder(secret) {
+    return function() {
+        return secret;
+    };
+}
+
+const revealSecret = secretHolder("My Secret");
+console.log(revealSecret());
+
+
+What will be the output of the above code?
+
+Result = My Secret
+
+-----------------------------------------------------------------------------------------------------------------
+
+ 49. Scope of Variables and Functions
+
+
+var globalVar = "I am global";
+
+function outerFunction() {
+    var localVar = "I am local";
+    return function innerFunction() {
+        return globalVar + " and " + localVar;
+    };
+}
+
+console.log(outerFunction()());
+
+
+What will be the output of the above code?
+
+Result = I am global and I am local
+
+-----------------------------------------------------------------------------------------------------------
+
+ 50. Function Expression with Default Arguments
+
+
+const divide = function(a = 10, b = 2) {
+    return a / b;
+};
+
+console.log(divide(20, 4));
+console.log(divide(15));
+
+
+What will be the output of the above code?
+
+Result = 5, 7.5
+
+----------------------------------------------------------------------------------------------------------------
+
+51. Object Method Using `this` Inside Function
+
+
+const person = {
+    firstName: "John",
+    lastName: "Doe",
+    fullName() {
+        return this.firstName + " " + this.lastName;
+    }
+};
+
+console.log(person.fullName());
+
+
+What will be the output of the above code?
+
+Result = John Doe
+
+----------------------------------------------------------------------------------------------------------------
+
+
+ 52. Rest Parameters with Arithmetic Operations
+
+
+function sumAll(...numbers) {
+    return numbers.reduce((a, b) => a + b, 0);
+}
+
+console.log(sumAll(1, 2, 3, 4));
+console.log(sumAll());
+
+
+What will be the output of the above code?
+
+Result = 10,0
+
+----------------------------------------------------------------------------------------------------------------
+
+
+ 53. Closure with Functions Returning Functions
+
+
+function createPowerFunction(power) {
+    return function(base) {
+        return Math.pow(base, power);
+    };
+}
+
+const square = createPowerFunction(2);
+console.log(square(4));
+
+
+What will be the output of the above code?
+
+
+Result = 16
+
+---------------------------------------------------------------------------------------------------------------
+
+ 54. Default Arguments with Logical OR
+
+
+function displayScore(score = 100) {
+    return score || 0;
+}
+
+console.log(displayScore(0));
+console.log(displayScore(80));
+
+
+What will be the output of the above code?
+
+Result = 0,80
+
+-----------------------------------------------------------------------------------------------------------------
+
+ 55. Rest Operator with Different Data Types
+
+
+function mixAndMatch(...args) {
+    return args.join("-");
+}
+
+console.log(mixAndMatch(1, "apple", true));
+
+
+What will be the output of the above code?
+
+
+Result= 1-apple-true
+
+----------------------------------------------------------------------------------------------------------------
+
+
+ 56. Closure Capturing Outer Variable
+
+
+let greeting = "Hello";
+
+function greetUser() {
+    return function(name) {
+        return `${greeting}, ${name}`;
+    };
+}
+
+const greet = greetUser();
+console.log(greet("Alice"));
+
+
+What will be the output of the above code?
+
+result = hello,alice
+
+----------------------------------------------------------------------------------------------------------------
+
+ 57. Function with Scope and Shadowing
+
+
+let x = 5;
+
+function testScope() {
+    let x = 10;
+    return x;
+}
+
+console.log(testScope());
+console.log(x);
+
+
+What will be the output of the above code?
+
+Result = 10,5
+
+------------------------------------------------------------------------------------------------------------------
+
+ 58. Object Method with Rest Parameters
+
+
+const restaurant = {
+    name: "Pizza Place",
+    order(...items) {
+        return `Ordered: ${items.join(", ")}`;
+    }
+};
+
+console.log(restaurant.order("Pizza", "Pasta"));
+
+
+What will be the output of the above code?
+
+Result = Ordered: Pizza, Pasta
+
+---------------------------------------------------------------------------------------------------------------
+
+ 59. Default Arguments with String Concatenation
+
+
+function welcomeMessage(name = "Guest") {
+    return `Welcome, ${name}!`;
+}
+
+console.log(welcomeMessage());
+console.log(welcomeMessage("John"));
+
+
+What will be the output of the above code?
+
+Result = Welcome, Guest!
+	Welcome, John!
+
+----------------------------------------------------------------------------------------------------------------
+
+ 60. Closure with Count and Increment
+
+
+function createCounter(start = 0) {
+    let count = start;
+    return function() {
+        return ++count;
+    };
+}
+
+const counter = createCounter(5);
+console.log(counter());
+console.log(counter());
+
+
+What will be the output of the above code?
+
+Result = 6,7
+
+------------------------------------------------------------------------------------------------------------------
+
+
+ 61. Rest Parameters with Array Operations
+
+
+function findMax(...numbers) {
+    return Math.max(...numbers);
+}
+
+console.log(findMax(10, 20, 30, 40));
+console.log(findMax());
+
+
+What will be the output of the above code?
+
+Result = 40, infinity
+
+--------------------------------------------------------------------------------------------------------------
+
+ 62. Function Returning Objects
+
+
+function createUser(name, age) {
+    return {
+        name,
+        age
+    };
+}
+
+const user = createUser("Alice", 25);
+console.log(user);
+
+
+What will be the output of the above code?
+
+Result = { name: 'Alice', age: 25 }
+
+-----------------------------------------------------------------------------------------------------------------
+
+
+ 63. Default Parameters and Dynamic Values
+
+
+function calculateTotal(price, tax = price * 0.1) {
+    return price + tax;
+}
+
+console.log(calculateTotal(100));
+console.log(calculateTotal(200, 30));
+
+
+What will be the output of the above code?
+
+Result = 110,230
+
+-------------------------------------------------------------------------------------------------------------
+
+64. Closure with Function Inside Function
+
+
+function outer() {
+    let outerVar = "Outer";
+
+    function inner() {
+        let innerVar = "Inner";
+        return outerVar + " " + innerVar;
+    }
+
+    return inner();
+}
+
+console.log(outer());
+
+
+What will be the output of the above code?
+
+Result = Outer Inner
+
+------------------------------------------------------------------------------------------------------------------
+
+65. Rest Operator and Array Length
+
+
+function countArgs(...args) {
+    return args.length;
+}
+
+console.log(countArgs(1, 2, 3));
+console.log(countArgs("a", "b", "c", "d"));
+
+
+What will be the output of the above code?
+
+
+Result = 3,4
+
+------------------------------------------------------------------------------------------------------------------
+
+ 66. Object Method with Default Parameters
+
+
+const userProfile = {
+    name: "John",
+    greet(greeting = "Hi") {
+        return `${greeting}, ${this.name}`;
+    }
+};
+
+console.log(userProfile.greet());
+console.log(userProfile.greet("Hello"));
+
+
+What will be the output of the above code?
+
+Result = Hi, John
+	Hello, John
+
+---------------------------------------------------------------------------------------------------------------
+
+ 67. Rest Parameters and Sorting
+
+
+function sortNumbers(...numbers) {
+    return numbers.sort((a, b) => a - b);
+}
+
+console.log(sortNumbers(10, 5, 2, 8));
+
+
+What will be the output of the above code?
+
+Result = [ 2, 5, 8, 10 ]
+
+----------------------------------------------------------------------------------------------------------------------
+
+68. Closures and Private Variables
+
+
+function bankAccount(initialBalance) {
+    let balance = initialBalance;
+    return function() {
+        return balance;
+    };
+}
+
+const account = bankAccount(1000);
+console.log(account());
+
+
+What will be the output of the above code?
+
+Result = 1000
+
+----------------------------------------------------------------------------------------------------------------
+
+ 69. Default Arguments with Multiple Parameters
+
+
+function processPayment(amount, fee = 2, discount = 0) {
+    return amount + fee - discount;
+}
+
+console.log(processPayment(100, undefined, 10));
+console.log(processPayment(200, 5));
+
+
+What will be the output of the above code?
+
+
+Result = 92,205
+
+------------------------------------------------------------------------------------------------------------------
+
+ 70. Function Returning Function with Parameters
+
+
+function multiplier(factor) {
+    return function(number) {
+        return number * factor;
+    };
+}
+
+const double = multiplier(2);
+console.log(double(5));
+
+
+
+
+What will be the output of the above code?
+
+
+
+Result = 10
+
+
