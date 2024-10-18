@@ -1,0 +1,24 @@
+var
+let
+const
+
+we can define variable by let var const
+
+{ let a = 9 } if we use let in a scope then we cant be allow to use it outside the scope. so let is block scope
+{ var a = 10} but we can use var outside the scope. so var is function scope.
+const a = 10 const is constant if we define const then we cant channge the value. its constant.
+
+
+function scope and local scope
+
+functon scope = har function create new scope and we defined variable in a function then we cant 
+access outside of the function because it a local variable
+
+local scope = variables declared inside a function scope or block, its a local variable and it can be only use 
+inside the function.
+
+Hoisting
+
+variable and function declarations are moved to the top of 
+their respective scopes during the compilation phase
+
