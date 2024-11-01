@@ -1,0 +1,610 @@
+1. 
+   function processArray(arr, callback) {
+       return arr.map(callback);
+   }
+   console.log(processArray([1, 2, 3], x => x * 2));
+   
+   Output: [2,4,6]
+
+Here we use callback function and pass the array in function and in return we are using map and map perform operation on every single element so first it will perform operation on first element then second and so on.
+
+-----------------------------------------------------------------------------------------------------------------
+
+2. 
+   function calculate(a, b, callback) {
+       return callback(a, b);
+   }
+   console.log(calculate(5, 3, (x, y) => x + y));
+   
+   Output: 8
+
+Here first use callback and when we pass the value then it will go to a and b and then callback and the operation will perform
+
+----------------------------------------------------------------------------------------------------------------
+
+3. 
+   function filterArray(arr, callback) {
+       return arr.filter(callback);
+   }
+   console.log(filterArray([10, 20, 30, 40], x => x > 25));
+   
+   Output: 30,40
+
+Here we use filter and filter perform operation on every single element, so when we pass the array then it will check each element and if elemet is greater than 25 then it will print
+
+-----------------------------------------------------------------------------------------------------------------
+
+4. 
+   function greetUser(name, callback) {
+       return callback(`Hello, ${name}!`);
+   }
+   console.log(greetUser("Alice", message => message));
+   
+   Output: hello alice
+
+so when we pass the value alice here then it will go to name and then in return it will print hello alice.
+
+------------------------------------------------------------------------------------------------------------------
+
+5. 
+   function doubleArray(arr, callback) {
+       return arr.map(callback);
+   }
+   console.log(doubleArray([1, 2, 3, 4], x => x * 2));
+   
+   Output: [2,4,6,8]
+
+here we again use map and as we already know that it will perform an operation on each element of array, and it will multiply with 2 and show the outpur in a new array.
+
+-----------------------------------------------------------------------------------------------------------------
+
+6. 
+   function findMin(arr, callback) {
+       return callback(Math.min(...arr));
+   }
+   console.log(findMin([5, 10, 1, 3], min => min));
+   
+   Output: 1
+
+here we use min so when we pass the array then it will find the minimum in an array and return it and here the minimum is 1.
+
+------------------------------------------------------------------------------------------------------------------
+
+7. 
+   function sum(a, b, callback) {
+       return callback(a + b);
+   }
+   console.log(sum(10, 5, result => result * 2));
+   
+   Output: 30
+
+here we pass the value in sum so first sum function will take 2 values which contain 10 and 5 and we perform an addition on a and b so it will add them and when function receive the value then it will store in result and result is multipl with 2.
+
+----------------------------------------------------------------------------------------------------------------
+
+8. 
+   function processStrings(arr, callback) {
+       return arr.map(callback);
+   }
+   console.log(processStrings(["hello", "world"], str => str.toUpperCase()));
+   
+   Output: ['HELLO', 'WORLD']
+
+here we use .toupper function and map will perform operation on each element so it will print each elements in upper letters in array.
+
+-----------------------------------------------------------------------------------------------------------------
+
+9. 
+   function countVowels(str, callback) {
+       const count = str.match(/[aeiou]/gi)?.length || 0;
+       return callback(count);
+   }
+   console.log(countVowels("hello world", count => count));
+   
+   Output: 3
+
+here we are finding vowels and when we find one then the length function will count it and it will count the vowel
+
+-----------------------------------------------------------------------------------------------------------------
+
+
+10. 
+    function getFirstElement(arr, callback) {
+        return callback(arr[0]);
+    }
+    console.log(getFirstElement([1, 2, 3], el => el * 2));
+    
+    Output: 2
+
+here we pass the array and when we pass the array then we return the first element of array and multiply it with 2 so it will return 2
+----------------------------------------------------------------------------------------------------------------
+
+11. 
+    function findIndex(arr, value, callback) {
+        const index = arr.indexOf(value);
+        return callback(index);
+    }
+    console.log(findIndex([10, 20, 30], 20, idx => idx));
+    
+    Output: 1
+
+it will return the index value of 20 which is 1.
+
+-----------------------------------------------------------------------------------------------------------------
+
+
+12. 
+    function mergeStrings(arr1, arr2, callback) {
+        return callback([...arr1, ...arr2]);
+    }
+    console.log(mergeStrings(["a", "b"], ["c", "d"], arr => arr.join(",")));
+    
+    Output: a,b,c,d
+
+here we use join function and with the use of join we add both the arrays by ',' so join is mainly use when we have to add then values by anything.
+
+------------------------------------------------------------------------------------------------------------------
+
+13. 
+    function multiplyNumbers(arr, factor, callback) {
+        return callback(arr.map(num => num * factor));
+    }
+    console.log(multiplyNumbers([1, 2, 3], 3, result => result.reduce((a, b) => a + b)));
+    
+    Output: 18
+
+here we pass the array and the factor value of 3 and then it it will multiply with the factor with each element of array and reduce will use reduce and add each element.
+
+---------------------------------------------------------------------------------------------------------------
+
+
+14. 
+    function checkEven(num, callback) {
+        return callback(num % 2 === 0);
+    }
+    console.log(checkEven(4, isEven => isEven ? "Even" : "Odd"));
+    
+    Output: even
+
+here it will give us result of even when we pass the value of 4 in num and it will check if it divide by 2 then it will print even or not then odd
+
+----------------------------------------------------------------------------------------------------------------
+
+15. 
+    function filterShortStrings(arr, maxLength, callback) {
+        return callback(arr.filter(str => str.length <= maxLength));
+    }
+    console.log(filterShortStrings(["apple", "banana", "pear"], 5, result => result));
+    
+    Output: [ 'apple', 'pear' ]
+
+here the result will be apple and pear because here we pass the length which is 5 and if the length of the each element greater then 5 then it will print.
+
+----------------------------------------------------------------------------------------------------------------
+
+16. 
+    function generateRandomNumbers(count, callback) {
+        const numbers = Array.from({ length: count }, () => Math.floor(Math.random() * 100));
+        return callback(numbers);
+    }
+    console.log(generateRandomNumbers(5, nums => nums));
+    
+    Output: [ 78, 79, 66, 32, 57 ]
+----------------------------------------------------------------------------------------------------------------
+
+17. 
+    function getObjectKeys(obj, callback) {
+        return callback(Object.keys(obj));
+    }
+    console.log(getObjectKeys({ a: 1, b: 2 }, keys => keys.join(", ")));
+    
+    Output: a,b
+
+here it will print the key and join it with the comma value and it will print it a,b 
+
+-----------------------------------------------------------------------------------------------------------------
+
+18. 
+    function getObjectValues(obj, callback) {
+        return callback(Object.values(obj));
+    }
+    console.log(getObjectValues({ a: 1, b: 2 }, values => values.reduce((a, b) => a + b)));
+    
+    Output: 3
+
+Here create a obj which contains the value and the key and pass the obj and then separate the value of then by using reduce function here add the value.
+
+--------------------------------------------------------------------------------------------------------------
+
+
+
+19. 
+    function capitalizeWords(arr, callback) {
+        return callback(arr.map(word => word.charAt(0).toUpperCase() + word.slice(1)));
+    }
+    console.log(capitalizeWords(["hello", "world"], words => words.join(" ")));
+    
+    Output: Hello World
+
+Here we have an array which contains elements so when we pass the array it will perform the operation on array and the join function will use and add space between array.
+
+-----------------------------------------------------------------------------------------------------------------
+
+
+20. 
+    function createFullName(first, last, callback) {
+        return callback(`${first} ${last}`);
+    }
+    console.log(createFullName("John", "Doe", name => name));
+    
+    Output: john Doe
+
+here we are passing name in function and in return function we are only using it so it will show us the output 
+
+------------------------------------------------------------------------------------------------------------------
+
+21. 
+    function isPrime(num, callback) {
+        const prime = num > 1 && [...Array(num).keys()].slice(2).every(n => num % n !== 0);
+        return callback(prime);
+    }
+    console.log(isPrime(7, result => result ? "Prime" : "Not Prime"));
+    
+    Output: prime
+------------------------------------------------------------------------------------------------------------------
+
+22. 
+    function findLongestWord(arr, callback) {
+        const longest = arr.reduce((a, b) => a.length > b.length ? a : b);
+        return callback(longest);
+    }
+    console.log(findLongestWord(["cat", "elephant", "dog"], word => word));
+    
+    Output: elephant
+
+here we pass the array in a function and when we pass array then in an array we are using a reduce function which will be perform on array element where a will store the first value and b is the next elemnt of array so when we start with a.length then it will check the length of first element and if it is greater then b then it will store a and if not then it will store b
+
+------------------------------------------------------------------------------------------------------------------
+
+23. 
+    function doubleNumbers(arr, callback) {
+        return callback(arr.map(num => num * 2));
+    }
+    console.log(doubleNumbers([1, 2, 3], nums => nums.join(", ")));
+    
+    Output: 2,4,6
+
+we are using map and map will perform operation on each element of an array so it will multiply by 2 and by using join it will seprate the value by comma.
+
+-----------------------------------------------------------------------------------------------------------------
+
+24. 
+    function findSquare(num, callback) {
+        return callback(num * num);
+    }
+    console.log(findSquare(4, square => square));
+    
+    Output: 16
+
+here when we pass the value which is 4 and then it will take as an parameter in num and here in callback we are multiplying the number with num and return it so it will return the square.
+
+----------------------------------------------------------------------------------------------------------------
+
+25. 
+    function splitString(str, callback) {
+        return callback(str.split(" "));
+    }
+    console.log(splitString("Hello World", arr => arr.length));
+    
+    Output: 2
+
+here it will give us the length of an array which is split by space so it will run on each element and print the length
+
+-----------------------------------------------------------------------------------------------------------------
+
+
+
+26. 
+    function countWordsInSentence(sentence, callback) {
+        const count = sentence.split(" ").length;
+        return callback(count);
+    }
+    console.log(countWordsInSentence("This is a test", count => count));
+    
+    Output: 4
+
+it will print 4 because when we perform the split and length then split function check where is space and it will break it from space and count will be 1 and so on.
+
+-----------------------------------------------------------------------------------------------------------------
+
+27. 
+    function convertToArray(obj, callback) {
+        return callback(Object.entries(obj));
+    }
+    console.log(convertToArray({ a: 1, b: 2 }, arr => arr.length));
+    
+    Output: 2
+------------------------------------------------------------------------------------------------------------------
+
+28. 
+    function getFirstChar(str, callback) {
+        return callback(str.charAt(0));
+    }
+    console.log(getFirstChar("hi", char => char));
+    
+    Output: h
+
+it will print the first letter of the string because we are using indexing of 0.
+
+-----------------------------------------------------------------------------------------------------------------
+
+29. 
+    function filterPositiveNumbers(arr, callback) {
+        return callback(arr.filter(num => num > 0));
+    }
+    console.log(filterPositiveNumbers([-1, 0, 2, 3], nums => nums));
+    
+    Output: [ 2, 3 ]
+
+here the output will be 2 and 3 because the filter function check the each value of an array and if value is greater then 0 then it will print it.
+
+------------------------------------------------------------------------------------------------------------------
+
+30. 
+    function extractNumbers(arr, callback) {
+        return callback(arr.filter(el => typeof el === "number"));
+    }
+    console.log(extractNumbers([1, "two", 3], nums => nums));
+    
+    Output: [ 1, 3 ]
+
+here it will print [1,3] because it will check the each elements of an array and if array element is number then it will return it.
+
+------------------------------------------------------------------------------------------------------------------
+
+
+31. 
+    function checkStringLength(str, maxLength, callback) {
+        return callback(str.length <= maxLength);
+    }
+    console.log(checkStringLength("Hello", 5, isValid => isValid ? "Valid" : "Too long"));
+    
+    Output: Valid
+
+it will check the length is the maxlength is greater then or equal then str then it will print valid otherwise it will print too long
+
+-----------------------------------------------------------------------------------------------------------------
+
+32. 
+    function getObjectEntries(obj, callback) {
+        return callback(Object.entries(obj));
+    }
+    console.log(getObjectEntries({ a: 1, b: 2 }, entries => entries.length));
+    
+    Output: 2
+
+------------------------------------------------------------------------------------------------------------------
+
+33. 
+    function countDown(num, callback) {
+        while (num > 0) {
+            callback(num);
+            num--;
+        }
+    }
+    countDown(3, n => console.log(n));
+    
+    Output: 3,2,1
+
+it will print 3,2,1 because when num takes the value of 3 then it will minus the value of each time until the value will be not greater then the zero.
+
+---------------------------------------------------------------------------------------------------------------
+
+34. 
+    function addElements(arr, callback) {
+        const sum = arr.reduce((a, b) => a + b, 0);
+        return callback(sum);
+    }
+    console.log(addElements([1, 2, 3, 4], total => total));
+    
+    Output: 10
+
+here when the array goes to function then it will perform the redue method on each element of an array and add each element of an array.
+
+----------------------------------------------------------------------------------------------------------------
+
+35. 
+    function getCharCode(char, callback) {
+        return callback(char.charCodeAt(0));
+    }
+    console.log(getCharCode("A", code => code));
+    
+    Output: 65
+
+it will print the ascii value of A which is 65.
+
+----------------------------------------------------------------------------------------------------------------
+
+36. 
+    function createArray(length, callback) {
+        return callback(Array.from({ length }, (_, i) => i + 1));
+    }
+    console.log(createArray(5, arr => arr));
+    
+    Output: [ 1, 2, 3, 4, 5 ]
+
+it will create an array and add 5 element of an array by adding one in each element.
+
+-----------------------------------------------------------------------------------------------------------------
+
+
+37. 
+
+
+    function getMax(arr, callback) {
+        return callback(Math.max(...arr));
+    }
+    console.log(getMax([1, 2, 3], max => max));
+    
+    Output: 3
+
+here  we are passing an array and then using rest operator and math.amx function it will check the max of array and print it.
+
+----------------------------------------------------------------------------------------------------------------- 
+
+38. 
+    function getMin(arr, callback) {
+        return callback(Math.min(...arr));
+    }
+    console.log(getMin([10, 20, 5], min => min));
+    
+    Output: 5
+
+here we are finding the minimum by using the same math.min function and rest operator.
+
+-----------------------------------------------------------------------------------------------------------------
+
+39. 
+    function sortDescending(arr, callback) {
+        return callback(arr.sort((a, b) => b - a));
+    }
+    console.log(sortDescending([5, 3, 8], arr => arr));
+    
+    Output: [ 8, 5, 3 ]
+
+here we are using sort function so when the array pass in function then it will check if b is greater then the a so it will sort the value.
+
+------------------------------------------------------------------------------------------------------------------
+
+40. 
+    function checkPalindrome(str, callback) {
+        const isPalindrome = str === str.split("").reverse().join("");
+        return callback(isPalindrome);
+    }
+    console.log(checkPalindrome("madam", result => result ? "Palindrome" : "Not Palindrome"));
+    
+    Output: palindrome
+
+here we are passing a string to function which it will check if the string is same if we reverse the string so first we split the string by space then by using reverse it will reverse the string then join will join the string by space again and if still the string is same as before then its palindrom otherwise not.
+
+------------------------------------------------------------------------------------------------------------------ 
+  
+41.  function filterLongStrings(arr, minLength, callback) {
+        return callback(arr.filter(str => str.length >= minLength));
+    }
+    console.log(filterLongStrings(["short", "very long string"], 5, result => result));
+    
+    Output: [ 'short', 'very long string' ]
+
+here it will check the string length if greater then the minlength then it will print the string which is greater and equal to minlength.
+
+-----------------------------------------------------------------------------------------------------------------
+
+42. 
+    function calculateAverage(arr, callback) {
+        const average = arr.reduce((a, b) => a + b, 0) / arr.length;
+        return callback(average);
+    }
+    console.log(calculateAverage([10, 20, 30], avg => avg));
+    
+    Output: 20
+
+it will print the 20 because we are using the reduce function which add each element of an array and then divide by the array length.
+
+-----------------------------------------------------------------------------------------------------------------
+
+43. 
+    function repeatString(str, times, callback) {
+        return callback(str.repeat(times));
+    }
+    console.log(repeatString("A", 5, repeated => repeated));
+    
+    Output: AAAAA
+
+it will Print the value of string again and again till the peramter we are passing is satisfying.
+
+-----------------------------------------------------------------------------------------------------------------
+
+44. 
+    function getLastElement(arr, callback) {
+        return callback(arr[arr.length - 1]);
+    }
+    console.log(getLastElement([1, 2, 3], el => el));
+    
+    Output: 3
+
+here it will print the length of the array element.
+
+------------------------------------------------------------------------------------------------------------------
+
+45. 
+    function removeWhitespace(str, callback) {
+        return callback(str.replace(/\s+/g, ''));
+    }
+    console.log(removeWhitespace("   Hello World   ", result => result));
+    
+    Output: HelloWorld
+
+------------------------------------------------------------------------------------------------------------------
+
+
+46. 
+    function findUnique(arr, callback) {
+        return callback([...new Set(arr)]);
+    }
+    console.log(findUnique([1, 2, 2, 3], unique => unique));
+    
+    Output: [ 1, 2, 3 ]
+
+here we are using set function which is only perform on each element which is unique so it will print each element once.
+
+----------------------------------------------------------------------------------------------------------------
+
+47. 
+    function calculateFactorial(num, callback) {
+        const factorial = num <= 1 ? 1 : num * calculateFactorial(num - 1, () => {});
+        return callback(factorial);
+    }
+    console.log(calculateFactorial(5, fact => fact));
+    
+    Output: NaN
+
+------------------------------------------------------------------------------------------------------------------
+
+48. 
+    function flattenArray(arr, callback) {
+        return callback(arr.flat());
+    }
+    console.log(flattenArray([[1, 2], [3, 4]], flat => flat));
+    
+    Output: [1,2,3,4]
+
+
+We are using flat function here which will add both of the arrays in single one and print the new array with both arrays 
+elements.
+------------------------------------------------------------------------------------------------------------------
+49. 
+    function getCommonElements(arr1, arr2, callback) {
+        const common = arr1.filter(value => arr2.includes(value));
+        return callback(common);
+    }
+    console.log(getCommonElements([1, 2, 3], [2, 3, 4], result => result));
+    
+    Output:  [2,3]
+
+Here it will print the result 2,3 because first we use filter so it will fliter the value and if the value is 
+in both array then it will return the common value of array.
+
+----------------------------------------------------------------------------------------------------------------
+
+50. 
+    function extractAges(people, callback) {
+        return callback(people.map(person => person.age));
+    }
+    const people = [{ name: "John", age: 30 }, { name: "Jane", age: 25 }];
+    console.log(extractAges(people, ages => ages));
+    
+    Output: [30, 25]
+
+here we are using map which iterate on each element of array and in return function when we return person.age then it will return the age
+which is 30 and 25
