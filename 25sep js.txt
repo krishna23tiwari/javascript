@@ -1,0 +1,85 @@
+premitive and non premetive datatypes
+
+premitive data types
+
+1. Number = 4, 10, 10.22,1022.333
+2. string = "hello", "how"
+3. undefined = let x (here we just defined variable but we cant give any value to variable)
+4. boolean = boolean datatyes accepts only two values (True and False)
+5. Null = it holds one possible value which is null
+6. bigint = like (123665478932265)
+7. symbol = it used to create object which will be unique
+
+non premitive datatypes
+
+1. object = its a entity having property and method. everything is an object in js.
+2. array = we can store more than one element under single name. let a = arr();
+
+-----------------------------------------------------------------------------------------------------------------
+
+LTS(Long Term support)
+it can help to safe and stable environment to code
+
+---------------------------------------------------------------------------------------------------
+
+node js and javascript
+
+nodejs is a javascript runtime environment.
+javascript is a computer programming language that is used to build scripts for websites.
+but with support of nodejs, js can be outside of the browsers.
+
+--------------------------------------------------------------------------------------------------------------------
+
+loosely couple language
+
+coupling = coupling is a refrence to the relationship between conponents. and components have minimal 
+dependency on each other so code can be more flexible.
+-----------------------------------------------------------------------------------------------------------------------------
+
+abstract class
+
+An abstract class is a class that is not meant to be instantiated directly. Instead, it serves as a blueprint 
+for other classes to extend from. 
+It often contains methods that must be implemented by derived classes but can also contain some shared code.
+
+-----------------------------------------------------------------------------------------------------------------------
+
+call by value
+
+in call by value we pass the copy of the value and then it perform the operations with the copy value.
+
+example: 
+
+modi(a)
+{ x = x+5;
+  console.log(x) }
+
+
+let a = 10
+modi(a);
+console.log(a);
+
+------------------------------------------------------------------------------------------------------------------------
+
+call by refernce
+
+call by refrence doest exist in js, but in call by refrence we pass the memory location of the value.
+
+
+so here we can say, that call by value we use in premetive datatypes.(int, string,boolean etc) because here
+we pass the copy of the value.
+
+And object and array are passed by reference, but refrence itself is passed by value.
+so function receive copy of refrence.
+
+------------------------------------------------------------------------------------------------------------------------
+
+npm(node package manager)
+
+it manages all the packages for node, node project install using npm, and package contains all the files needed for 
+a module.
+
+npx(node package execute)
+
+it comes with npm, when we install npm above 5.2.0 then it comes with that
+
