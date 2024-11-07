@@ -1,0 +1,332 @@
+1. Use map to create a new array that doubles the values of the given array [1, 2, 3, 4].
+
+let a = [1,2,3,4]
+
+let b = a.map((n) =>{
+    return n *2
+});
+
+console.log(b);
+
+----------------------------------------------------------------------------------------------------------------
+
+2. Use filter to remove even numbers from the array [5, 8, 12, 15, 18].
+
+let a =  [5, 8, 12, 15, 18]
+
+let b = a.filter((n) =>{
+    return n %2 !== 0
+});
+
+console.log(b);
+
+----------------------------------------------------------------------------------------------------------------
+
+3.Use reduce to sum up all elements in the array [10, 20, 30, 40].
+
+let a =  [10, 20, 30, 40]
+
+let b = a.reduce((n,a2) =>{
+    return n + a2
+});
+
+console.log(b);
+
+----------------------------------------------------------------------------------------------------------------
+
+4. Use find to get the first element greater than 15 in the array [8, 12, 16, 20, 24].
+
+let a =  [8, 12, 16, 20, 24]
+
+let b = a.find((n) => n > 15);
+
+console.log(b);
+
+------------------------------------------------------------------------------------------------------------------
+
+5. Use findIndex to locate the index of the first odd number in the array [2, 4, 6, 9, 12].
+
+let a =  [2, 4, 6, 14, 9, 12]
+
+let b = a.findIndex((n) => n%2 !==0);
+
+console.log(b);
+
+---------------------------------------------------------------------------------------------------------------
+
+6. Use some to check if there is any number greater than 100 in [10, 20, 30, 150].
+
+let a =  [10, 20, 30, 150]
+
+let b = a.some((n) => n > 100);
+
+console.log(b);
+
+----------------------------------------------------------------------------------------------------------------
+
+7. Use every to check if all numbers in the array [5, 10, 15, 20] are multiples of 5.
+
+let a =  [5, 10, 15, 20]
+
+let b = a.every((n) => n % 5 === 0);
+
+console.log(b);
+
+----------------------------------------------------------------------------------------------------------------
+
+8. Use sort to sort the array [3, 5, 1, 4, 2] in ascending order.
+
+let a =  [3, 5, 1, 4, 2] 
+
+let b = a.sort()
+
+console.log(b);
+
+--------------------------------------------------------------------------------------------------------------
+
+9. Use filter to extract words longer than 3 characters from ["cat", "dog", "fish", "elephant"].
+
+let a = ["cat", "dog", "fish", "elephant"]
+
+let b = a.filter((n) => n.length > 3)
+
+console.log(b);
+
+---------------------------------------------------------------------------------------------------------------
+
+10. Use map to convert an array of prices [10, 20, 30] to include tax (10%).
+
+let a = [10, 20, 30] 
+
+let b = a.map((n) => n * 1.10)
+
+console.log(b);
+
+-----------------------------------------------------------------------------------------------------------------
+
+11. Use reduce to multiply all numbers in the array [2, 3, 4].
+
+let a = [2, 3, 4] 
+
+let b = a.reduce(function (n, a1){
+    return n * a1
+})
+
+console.log(b);
+
+------------------------------------------------------------------------------------------------------------------
+
+12. Use sort to arrange ["banana", "apple", "cherry"] alphabetically.
+
+let a = ["banana", "apple", "cherry"]
+
+let b = a.sort()
+
+console.log(b);
+
+-----------------------------------------------------------------------------------------------------------------
+
+13.Use some to check if any element in [12, 24, 35, 47] is divisible by 5.
+
+let a = [12, 24, 35, 47]
+
+let b = a.some((n) => n % 5 ==0 )
+
+console.log(b);
+
+----------------------------------------------------------------------------------------------------------------
+
+14. Use find to get the first negative number in [7, -3, 9, -8, 2].
+
+let a = [7, -3, 9, -8, 2]
+
+let b = a.find((n) => n < 0 )
+
+console.log(b);
+
+---------------------------------------------------------------------------------------------------------------
+
+15. Use every to check if all numbers in [9, 18, 27, 36] are divisible by 9.
+
+let a = [9, 18, 27, 36]
+
+let b = a.every((n) => n % 9 == 0 )
+
+console.log(b);
+
+----------------------------------------------------------------------------------------------------------------
+
+16. Use filter to get names starting with "A" from ["Alice", "Bob", "Amanda", "Carl"].
+
+let a = ["Alice", "Bob", "Amanda", "Carl"]
+
+let b = a.filter((n) => n.startsWith("A") )
+
+console.log(b);
+
+-----------------------------------------------------------------------------------------------------------------
+
+17. Use map to square all elements of [1, 2, 3, 4, 5].
+
+let a = [1, 2, 3, 4, 5]
+
+let b = a.map((n) => n * n )
+
+console.log(b);
+
+-----------------------------------------------------------------------------------------------------------------
+
+18. Use find to get the first string longer than 4 characters from ["dog", "horse", "cat", "sheep"].
+
+let a = ["dog", "horse", "cat", "sheep"]
+
+let b = a.find((n) => n.length > 4 )
+
+console.log(b);
+
+-----------------------------------------------------------------------------------------------------------------
+
+19. Use sort to sort the numbers [50, 20, 10, 40, 30] in descending order.
+
+let a = [50, 20, 10, 40, 30]
+
+let b = a.sort()
+b.reverse()
+
+console.log(b);
+
+----------------------------------------------------------------------------------------------------------------
+
+20. Use reduce to concatenate an array of strings ["Hello", " ", "World"].
+
+let a = ["Hello", " ", "World"] 
+
+let b = a.reduce((n,a1) => n + a1)
+
+console.log(b);
+
+----------------------------------------------------------------------------------------------------------------
+
+21. Use map to transform ["John", "Doe"] into ["john", "doe"] (lowercase).
+
+let a = ["John", "Doe"] 
+
+let b = a.map((n) => n.toLowerCase())
+
+console.log(b);
+
+----------------------------------------------------------------------------------------------------------------
+
+22. Use filter to get all elements less than 100 from [150, 80, 90, 300].
+
+let a = [150, 80, 90, 300]
+
+let b = a.filter((n) => n < 100)
+
+console.log(b);
+
+---------------------------------------------------------------------------------------------------------------
+
+23. Use findIndex to locate the position of "cat" in ["dog", "cat", "bird"].
+
+let a = ["dog", "cat", "bird", "crow"]
+
+let b = a.findIndex((n) => n == "cat")
+
+console.log(b);
+
+----------------------------------------------------------------------------------------------------------------
+
+24. Use every to confirm if all elements in [10, 20, 30, 40] are greater than 5.
+
+let a = [10, 20, 30, 40]
+
+let b = a.every((n) => n > 5)
+
+console.log(b);
+
+-----------------------------------------------------------------------------------------------------------------
+
+25. Use some to determine if any number in [25, 35, 45] is greater than 40.
+
+let a = [25, 35, 45]
+
+let b = a.some((n) => n > 40)
+
+console.log(b);
+
+------------------------------------------------------------------------------------------------------------------
+
+26. Use filter to extract odd numbers from [12, 15, 19, 21, 24].
+
+let a = [12, 15, 19, 21, 24]
+
+let b = a.filter((n) => n%2 !== 0)
+
+console.log(b);
+
+------------------------------------------------------------------------------------------------------------------
+
+27.Use map to append the word "Item" to each element of ["One", "Two", "Three"].
+
+let a = ["One", "Two", "Three"]
+
+let b = a.map((n) => n + "item")
+
+console.log(b);
+
+-----------------------------------------------------------------------------------------------------------------
+
+28. Use sort to sort an array of characters ["b", "a", "c", "e", "d"] alphabetically.
+
+let a = ["b", "a", "c", "e", "d"]
+
+let b = a.sort()
+
+console.log(b);
+
+------------------------------------------------------------------------------------------------------------------
+
+29. Use reduce to find the maximum number in [3, 6, 2, 8, 5].
+
+let a = [3, 6, 2, 8, 5]
+
+let b = a.reduce((n,a1) => a1 > n ? a1: n)
+
+console.log(b);
+
+-----------------------------------------------------------------------------------------------------------------
+
+30. Use find to get the first number greater than 100 in [50, 120, 90, 150].
+
+let a = [50, 120, 90, 150]
+
+let b = a.find((n) => n>100)
+
+console.log(b);
+
+------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
