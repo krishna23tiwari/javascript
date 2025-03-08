@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="script.js" defer></script>
+</head>
+<body style="background-color: #212121; color: #fff;">
+
+
+    <h1>Code execution in javascript !!</h1>
+
+    <div class="parent">
+        <div class="day">Mondday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+        <div class="day">Friday</div>
+        <div class="day">Saturday</div>
+    </div>
+    
+</body>
+<script>
+    const xx = document.querySelector('.parent');
+    // console.log(xx);
+    // console.log(xx.children);
+    // console.log(xx.children[0].innerHTML); 
+    
+    
+    // for (let i = 0; i < xx.children.length; i++) {
+    //     console.log(xx.children[i].innerHTML);
+        
+    // }
+
+    xx.children[1].style.color = "green"
+    // console.log(xx.firstElementChild);
+    // console.log(xx.lastElementChild.innerHTML);
+
+    const ss = document.querySelector('.day')
+    // console.log(ss);
+
+    // console.log(ss.parentElement);
+
+    // console.log(ss.nextElementSibling);
+
+    console.log("Nodes: ",xx.childNodes);
+</script>
+</html>
