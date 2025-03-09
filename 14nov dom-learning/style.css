@@ -1,0 +1,66 @@
+/* body{
+  background-color: #212121;
+  color: #fff;
+  
+}
+
+.main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1{
+  margin-right: 15px;
+}
+
+#submit{
+  margin-left: 10px;
+}
+
+#reset{
+  margin-left: 10px;
+}
+
+h2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.result{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.guesses {
+  background-color: #7a7a7a;
+} */
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #212121;
+  color: #fff;
+  text-align: center;
+}
+
+.container {
+  margin-top: 50px;
+}
+
+input[type="number"] {
+  padding: 10px;
+  width: 200px;
+}
+
+button {
+  padding: 10px 15px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.resultParas {
+  margin-top: 20px;
+}
