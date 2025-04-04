@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="script.js" defer></script>
+</head>
+<body style="background-color: #212121; color: #fff;">
+
+    <h1>Code execution in javascript !!</h1>
+
+    <ul class = "language">
+        <li>javascript</li>
+        <li>python</li>
+    </ul>
+    
+</body>
+<script>
+    function addlanguage(lang){
+        const li = document.createElement('li')
+        li.innerHTML = `${lang}`
+        document.querySelector('.language').appendChild(li)
+         
+    }
+    addlanguage("Ruby")
+    addlanguage("C++")
+
+    function addopt(lang){
+        const li = document.createElement('li')
+        li.appendChild(document.createTextNode(lang))
+        document.querySelector('.language').appendChild(li)
+    }
+
+    addopt("golang")
+
+    // edit
+
+    const xx = document.querySelector("li:nth-child(2)")
+    console.log(xx);
+    const new1 = document.createElement('li')
+    new1.textContent = "Mojo"
+    xx.replaceWith(new1)
+
+    const xx1 = document.querySelector("li:first-child")
+    xx1.outerHTML = '<li>Typescript</li>'
+
+    const last = document.querySelector("li:last-child")
+    last.remove()
+
+</script>
+</html>
