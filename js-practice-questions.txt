@@ -1,0 +1,208 @@
+// let a = "hello"
+
+// let b = ""
+
+// for(let i = a.length-1; i>= 0; i--){
+//     b += a[i]
+// }
+
+// console.log(b);
+
+
+// let a = [1,2,3,5,66,22]
+
+// let b = a[0]
+
+// for(let i = 0; i<a.length; i++){
+//     if(a[i] > b){
+//         b = a[i]
+//     }
+// }
+
+// console.log(b);
+
+
+// let a = "hello how are you"
+
+// let b = "aeiouAEIOU"
+
+// let count = 0
+
+// for(let i = 0; i<a.length; i++){
+//     if(b.includes(a[i])){
+//         count ++
+//     }
+// }
+
+// console.log(count);
+
+
+
+// let a = [1,2,3,4,5]
+
+// let b = 0
+
+// for(let i = 0; i<a.length; i++){
+//     b += a[i]
+// }
+
+// console.log(b);
+
+
+
+// let a = "the quick brownnn fox"
+
+// let b = ""
+
+// let c = ""
+
+// for(let i = 0; i<a.length-1; i++){
+//     if(a[i] !== " "){
+//         b += a[i]
+//     }else{
+//         if(b.length > c.length){
+//             c = b
+//         }
+        
+//         b = ""
+//     }
+// }
+
+// if(b.length > c.length){
+//     c  = b
+// }
+
+// console.log(c);
+
+
+
+// let a = "hello how are you"
+
+// let b = {}
+
+
+// for(let i = 0; i<a.length; i++){
+//     let x = a[i]
+//     if(b[x]){
+//         b[x] ++
+//     }else{
+//         b[x] = 1
+//     }
+// }
+
+// console.log(b);
+
+
+
+// let a = ""
+
+// for(let i = 0; i<1; i++){
+//     a+= Math.floor(Math.random() *10)
+// }
+
+// console.log(a);
+
+
+
+// let a =[1,2,3,2,1,4,5,6,4]
+
+// let b = []
+// let c = []
+
+// for(let i = 0; i<a.length; i++){
+//     if(b.includes(a[i])){
+//       if(!c.includes(a[i])){
+//           c.push(a[i])
+//       }
+//     }else{
+//         b.push(a[i])
+//     }
+// }
+
+// console.log(c);
+
+
+
+// let a = "hello world"
+
+// let b = ""
+
+// let c  =[]
+
+// for(let i = 0; i<a.length; i++){
+//     if(a[i] !== ""){
+//         b += a[i]
+//     }else{
+//         c.push(b)
+//         b= ""
+//     }
+// }
+
+// c.push(b)
+
+// let x = ""
+
+// for(let i = c.length-1; i>=0; i--){
+//     x += c[i]
+//     if(i>0){
+//         x += " "
+//     }
+// }
+
+// console.log(x);
+
+
+
+// let a = {a : 1}
+// let b = {a:2, b:3}
+// let c = {}
+
+// for(let key in a){
+//     c[key] = a[key]
+// }
+
+// for(let key in b){
+//     c[key] = b[key]
+// }
+
+// console.log(c);
+
+
+
+// 1 = a => 3
+// 2 = c => 6
+// 3 = b => 3
+// 4 = b => [6,8]
+// 5 = b => 2
+// 6 = b => [3,4]
+// 7 = c => 1,2
+// 8 = b => 10
+// 9 = a => [0,1,2]
+// 10 = b => 12
+// 11 = b => 1
+// 12 = c => [4]
+// 13 = a => 1,2,13
+// 14 = a => inside callback
+// 15 = a => 10
+// 16 = b => [2,4]
+// 17 = a => [1,4,9]
+// 18 = a = 15
+// 19 = b => [1,2,3]
+// 20 = c = 3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
