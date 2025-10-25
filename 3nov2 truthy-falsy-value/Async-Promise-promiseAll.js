@@ -407,16 +407,18 @@ const movies = [
 // console.log(a)
 
 
-let a = [1,62,43,14,25,63,42]
+// let a = [1,62,43,14,25,63,42]
 
-for(let i = 0; i<a.length; i++){
-    for(let j = i; j<a.length; j++){
-        if(a[i] < a[j]){
-            let x = a[j]
-            a[j] = a[i]
-            a[i] = x
-        }
-    }
-}
+// for(let i = 0; i<a.length; i++){
+//     for(let j = i; j<a.length; j++){
+//         if(a[i] < a[j]){
+//             let x = a[j]
+//             a[j] = a[i]
+//             a[i] = x
+//         }
+//     }
+// }
 
-console.log(a)
+// console.log(a)
+
+
